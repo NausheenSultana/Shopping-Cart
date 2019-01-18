@@ -39,21 +39,21 @@
       "tagline": "100 Cash back",
       "name": "Earphones",
       "price": 11690,
-      "imageUrl": "https://via.placeholder.com/150",
+      "imageUrl": "images/pho.jpg",
       "desc": "White"
     },
     {
       "id": 5,
       "name": "Earphones",
       "price": 11690,
-      "imageUrl": "https://via.placeholder.com/150",
+      "imageUrl": "images/charge.png",
       "desc": "Orange"
     },
     {
       "id": 6,
       "name": "Test 5X",
       "price": 10000,
-      "imageUrl": "https://via.placeholder.com/150",
+      "imageUrl": "images/bt.jpg",
       "desc": "32GB Gold"
     }
   ],

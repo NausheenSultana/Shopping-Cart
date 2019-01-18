@@ -159,6 +159,9 @@ ul li{
  }
  th{
 	 font-weight:bold;
+	 padding: 12px 79px;
+    width: 25%;
+    text-align: center;
  }
 .qty{
 	 width:50px;
@@ -175,7 +178,7 @@ tr td:nth-child(2)
 }
 /**pincode**/
 .delivery ul li{
-	display:inline!important;
+	display:inline;
 	float:left;
 	margin-right: 30px;
 }
@@ -229,9 +232,28 @@ tr td:nth-child(2)
 
 }
 
-
 @media screen and (min-width: 800px) {
 .summary,.delivery{
 	padding: 50px 100px;
 }
+}
+
+
+.totD, .subT, .stdS{
+	text-align : right;
+}
+.pic{
+	width:100px!important;
+	height:100px!important;
+	!margin:50px;
+}
+#showData td{
+	vertical-align:middle;
+	padding:20px 90px;
+}
+#showData tr:first-child th{
+	border-bottom:1px solid grey;
+}
+#showData tr td:first-child{
+	!padding:20 60px!important;
 }

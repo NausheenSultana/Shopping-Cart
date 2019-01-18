@@ -10,7 +10,7 @@
 
 </head>
 
-<body style="font-family:Montserrat;color:#aaaaaa;">
+<body style="font-family:Montserrat;color:#aaaaaa;" ng-App="myApp" ng-controller="myCtrl">
 	
 		<header>
 			<div class="nav">
@@ -28,7 +28,20 @@
 			<div class="top"> <p>Shop for $5000 or more and get 10% discount on your order</p></div>
 				<h1> Shopping cart</h1>
 			<div id="main">	
-			<div id="showData"></div>
+			<div>
+			<table id="showData">
+			  <tr>
+				<th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th></th>
+			  </tr>	
+			  <tr ng-repeat="x in items" id="$index">
+				<td><p><img align="middle" class="pic" src="{{ x.imageUrl }}">{{ x.name }}</p></td>
+				<td>{{ x.price | currency }}</td>
+				<td><img src="icon/plus.png" onclick="add($index)" ><span class="qty" id="q$index"></span><img src="icon/minus.png"  onclick="sub($index)"></td>
+				<td>{{ x.price * count | currency}}</td>
+				<td class="dell"><img  src="icon/DELETE.png"></td>
+			  </tr>
+			</table>
+			</div>
 			<div id="list">
 				<ul>
 					<li>
@@ -42,11 +55,13 @@
 			<div class="lower">
 				<div class="delivery">
 					<h2>Delivery Availability</h2>
-					<span><img src="icon/location.png"></span><input id="pin" type="number"><input id="chg" type="submit" value="CHANGE"></button>
+					<form  onsubmit="validateForm()"><span><img src="icon/location.png"></span><input id="pin" ng-model="pin" type="number">
+						<input id="chg" type="submit" value="CHANGE" >
+					</form>
 					<hr>
 					<ul>
-						<li><span>Free<br>Delivery</span></li>
-						<li>Cash on<br>Delivery</li>
+						<li id="fd"><span>Free<br>Delivery</span></li>
+						<li id="cd">Cash on<br>Delivery</li>
 						<li>Estimated Delivery<br>time is 3 - 5 days</li>
 					</ul>
 				
@@ -55,14 +70,14 @@
 					<h2>Order Summary   (xx items)</h2>
 					<table>
 						<tr><td>Subtotal</td><td id="subt"></td></tr>
-						<tr><td>Total Discount</td><td id="totD"></td></tr>
+						<tr><td>Total Discount</td><td id="totD">0</td></tr>
 						<tr><td>Standard Shipping</td><td id="stdS"></td></tr>
 						<tr></tr>
 						<tr><td>Order Total</td><td><span id="sumAmt"></span></td></tr>
 					</table>
 					
 					<div class="row1">
-						<input type="button" id="chk" value="CHECKOUT">
+						<input type="button" id="chk" value="CHECKOUT" disabled>
 						<span id="cont"><a style="text-decoration:none;font-weight:bold;"	href="#">CONTINUE SHOPPING</a></span>
 					</div>	
 				</div>

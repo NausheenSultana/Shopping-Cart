@@ -1,24 +1,23 @@
-/* var app = angular.module('myApp', []);
+ var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
   $http.get("data.json")
   .then(function(response) {
       $scope.items = response.data.products;
 	  $scope.count = 1;
-	  
+	 // $scope.pincode = response.data.pincode;
+	  				
   });
   
-}); */
+}); 
 
 
-function delet(id)
-{	 
-	var rowId = 'row' + id ;
-	//alert(rowId);
-	var row = document.getElementById(rowId);
-	row.style.display = "none";
-}
 
-
+$(document).ready(function(){
+  $(".dell").click(function(){
+	  alert("lll");
+    $(this).hide();
+  });
+});
 	
 
 var count = 1;
@@ -28,11 +27,19 @@ function add(idq){
 	qid ++;
 	alert(qid);
 }
-$(document).ready(function() {
+/* $(document).ready(function() {
 	var count = 1;
 			
 			document.getElementsByClassName("qty").innerHTML = count;
 			
+			
+			
+			$(".dell").click(function(){
+			alert("ji");
+			$(this).hide();
+			});
+
+
             $("#deleteee").click(function(event){
                $.getJSON('result.json', function(jd) {
                   $('#stage').html('<p> Name: ' + jd.name + '</p>');
@@ -44,13 +51,16 @@ $(document).ready(function() {
          });
 		 
 		 
+ */
 
 
 
 
 
-
-window.onload = function drawLineChart() {
+function validateForm() {
+	
+	
+		
 
         $.ajax({
 
@@ -65,12 +75,46 @@ window.onload = function drawLineChart() {
             //contentType: "application/json; charset=utf-8",
 
             success: function (data) {
+ 
+			var flag = 0;
+			var datas = data.pincode;
+			var pin = document.getElementById("pin").value;
+			
+			$.each(datas, function (index, value) {
+			
+			for (var key in datas) {
+				while(flag!==1){
+				  if(pin === key)
+				  {
+					  flag = 1;
+					  var price = value.deliveryPrice;
+					  var cod = value.cashOnDelivery;
+					  
+					  alert(price);
+					  console.log(key, datas[key]);
+					  document.getElementById("chk").disabled = false;
+					  if(price===0)
+						  document.getElementById("stdS").innerHTML = "Free";
+					  else
+					  {
+						  document.getElementById("stdS").innerHTML = price;
+						  document.getElementById("fd").style.display = "none";
+					  }
+				  }	
+				}
+			}
+			
 
+			
+			
+			});
 
-			var datas = data.products;
+			
+			alert(pin);
+			
+			
 				
-				
-				var col = [];
+		/* 		var col = [];
 			for (var i = 0; i < datas.length; i++) {
             for (var key in datas[i]) {
                 if (col.indexOf(key) === -1) {
@@ -94,7 +138,7 @@ window.onload = function drawLineChart() {
 
         var tr = table.insertRow(-1);                   // TABLE ROW.
 
-		var thArr = ["Product", "Price", "Quantity", "Subtotal"];
+		var thArr = ["Products", "Price", "Quantity", "Subtotal"];
 		
 		
 		    for (var i = 0; i < thArr.length; i++) {
@@ -132,7 +176,7 @@ window.onload = function drawLineChart() {
         // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
         var divContainer = document.getElementById("showData");
         divContainer.innerHTML = "";
-        divContainer.appendChild(table);
+        divContainer.appendChild(table); */
     },
 
               
@@ -148,8 +192,8 @@ window.onload = function drawLineChart() {
             }
 
         });
-
-    }
+	//e.preventDefault();
+    } 
 
 
 
@@ -157,66 +201,3 @@ window.onload = function drawLineChart() {
 	
 		 
 		 
-/* window.onload = function CreateTableFromJSON() {
-
-        var myBooks = [
-            {
-                "Book ID": "1",
-                "Book Name": "Computer Architecture",
-                "Category": "Computers",
-                "Price": "125.60"
-            },
-            {
-                "Book ID": "2",
-                "Book Name": "Asp.Net 4 Blue Book",
-                "Category": "Programming",
-                "Price": "56.00"
-            },
-            {
-                "Book ID": "3",
-                "Book Name": "Popular Science",
-                "Category": "Science",
-                "Price": "210.40"
-            }
-        ]
-
-        // EXTRACT VALUE FOR HTML HEADER. 
-        // ('Book ID', 'Book Name', 'Category' and 'Price')
-        var col = [];
-        for (var i = 0; i < myBooks.length; i++) {
-            for (var key in myBooks[i]) {
-                if (col.indexOf(key) === -1) {
-                    col.push(key);
-                }
-            }
-        }
-
-        // CREATE DYNAMIC TABLE.
-        var table = document.createElement("table");
-
-        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-
-        var tr = table.insertRow(-1);                   // TABLE ROW.
-
-        for (var i = 0; i < col.length; i++) {
-            var th = document.createElement("th");      // TABLE HEADER.
-            th.innerHTML = col[i];
-            tr.appendChild(th);
-        }
-
-        // ADD JSON DATA TO THE TABLE AS ROWS.
-        for (var i = 0; i < myBooks.length; i++) {
-
-            tr = table.insertRow(-1);
-
-            for (var j = 0; j < col.length; j++) {
-                var tabCell = tr.insertCell(-1);
-                tabCell.innerHTML = myBooks[i][col[j]];
-            }
-        }
-
-        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-        var divContainer = document.getElementById("showData");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table);
-    } */
