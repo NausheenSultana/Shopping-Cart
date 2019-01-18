@@ -1,0 +1,237 @@
+* {
+  box-sizing: border-box;
+}
+#main,.wrapper{
+	margin:0px;
+	background-color:white;
+}
+@media only screen and (max-width:620px) {
+  /* For mobile phones: */
+  .menu, .main, .right {
+    width:100%;
+  }
+ nav a:first-child{
+	 display:none;
+ }
+}
+.top{
+background-color:#848ac6;
+color:#d8d9ec;
+padding: 7px 0px;
+text-align:center;
+margin-top:30px;
+}
+h1{
+color:black!important;
+letter-spacing: 2px;
+}
+.title{
+float:left;
+font-size:22px;
+color:white;
+font-weight:bold;
+}
+header{
+width:100%;
+background-color: #131f97;
+height:60px;
+}
+nav{
+float:right;
+margin-top: -11px;
+}
+nav a{
+border-right: 1px solid white;
+padding:5px 9px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+}
+
+
+.nav{
+margin:0px 50px;
+padding:20px 0px;
+}
+body{
+margin: 0;
+}
+.wrapper{
+background-color:#f5f5f5;
+width:100%!important;
+padding:0px 50px;
+}
+
+footer{
+background-color:#212121;
+font-size:10px;
+color:#d8d9ec;
+padding: 20px 40px;
+}
+ul li{
+	list-style-type:none;
+}
+
+/*footer*/
+.bottom{
+	float:right;
+}
+.bot_menu li{
+	display:inline;
+	padding:1px 10px;
+}
+.bot_menu li:not(:last-child) {
+    border-right:1px solid #d8d9ec;
+}
+.row_left{
+	width:60%;
+	float:left;
+	text-align:left;
+}
+.row_right{
+	width:40%;
+	float:right;
+	text-align:center;
+}
+.row_left .column {
+  float: left;
+  width: 25%;
+  padding: 20px 40px ;
+}
+.row_right .column {
+	height:100%;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+.row_left  .column {
+    width: 50%;
+  }
+  #col3, #col4{
+	  display:none;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    display:none;
+  }
+  
+.summary,.delivery{
+	width:100%;
+	border:1px solid #bababa;
+	border-radius:7px;
+	margin:20px 0px;
+	padding: 10px;
+}
+
+#chk,#cont{
+	display:block;
+	padding:20px 0px;
+	margin:0 auto;
+}
+#cont{
+	text-align:center;
+}
+}
+
+@media screen and (max-width: 800px) {
+.delivery ul li
+{
+	margin-right:6px!important;
+	font-size:12px;
+}
+.delivery ul{
+	height:80px;
+	margin-left: -20px;
+}
+}
+ /**cart**/
+ td{
+	 color:grey;
+ }
+ th{
+	 font-weight:bold;
+ }
+.qty{
+	 width:50px;
+	 height:50px;
+	 font-weight:bold!important;
+	 color:black!important;
+	 border:1px solid black;
+	 background-color:white;
+}
+
+tr td:nth-child(2)
+{
+	font-weight:bold!important;
+}
+/**pincode**/
+.delivery ul li{
+	display:inline!important;
+	float:left;
+	margin-right: 30px;
+}
+.delivery ul li:before{
+	content:url('icon/check.png');
+	margin-left:-22px;
+}
+
+.summary table{
+	    padding: 24px 0px;
+}
+
+.delivery h2,.summary h2{
+	color:black;
+}
+#chk /** checkout button**/
+{
+	background-color:#131f97;
+	border-radius:18px;
+	color:white;
+	font-size:12px;
+	letter-spacing:2px;
+	font-weight:bold;
+	padding:15px;
+	border:none;
+	margin-right:40px;
+}
+#chg{
+	color:#131f97;
+	font-weight:bold;
+	background-color:transparent;
+	border:none;
+	letter-spacing:2px;
+}
+#pin{
+	color:grey;
+	font-size:20px;
+	border:none;
+	background-color:transparent;
+}
+
+@media screen and (min-width: 667px) {
+	.delivery{
+	float:left;
+	width:50%;
+}
+.summary{
+	float:right;
+	width:50%;
+}
+
+}
+
+
+@media screen and (min-width: 800px) {
+.summary,.delivery{
+	padding: 50px 100px;
+}
+}

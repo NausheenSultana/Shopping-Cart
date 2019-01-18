@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="script.js"> </script>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+<link href='style.css' rel='stylesheet'>
+
+</head>
+
+<body style="font-family:Montserrat;color:#aaaaaa;">
+	
+		<header>
+			<div class="nav">
+				<span class="title"><img src="images/logo.png"></span>
+			
+				<nav >
+					<a href="">Track Order</a>
+					<a href=""><img src="icon/search_icon.png" style="margin-bottom:-4px;"	width="20px" height="20px;"/></a>
+					<a href=""><img src="icon/user.png" style="margin-bottom:-17px;"/></a>
+					<a href=""><img src="icon/shopping.png" style="margin-bottom:-17px;"/></a>
+				</nav>
+			</div>
+		</header>
+		<div class="wrapper">
+			<div class="top"> <p>Shop for $5000 or more and get 10% discount on your order</p></div>
+				<h1> Shopping cart</h1>
+			<div id="main">	
+			<div id="showData"></div>
+			<div id="list">
+				<ul>
+					<li>
+						
+						
+					</li>
+				
+				</ul>
+			</div>
+			
+			<div class="lower">
+				<div class="delivery">
+					<h2>Delivery Availability</h2>
+					<span><img src="icon/location.png"></span><input id="pin" type="number"><input id="chg" type="submit" value="CHANGE"></button>
+					<hr>
+					<ul>
+						<li><span>Free<br>Delivery</span></li>
+						<li>Cash on<br>Delivery</li>
+						<li>Estimated Delivery<br>time is 3 - 5 days</li>
+					</ul>
+				
+				</div>
+				<div class="summary">
+					<h2>Order Summary   (xx items)</h2>
+					<table>
+						<tr><td>Subtotal</td><td id="subt"></td></tr>
+						<tr><td>Total Discount</td><td id="totD"></td></tr>
+						<tr><td>Standard Shipping</td><td id="stdS"></td></tr>
+						<tr></tr>
+						<tr><td>Order Total</td><td><span id="sumAmt"></span></td></tr>
+					</table>
+					
+					<div class="row1">
+						<input type="button" id="chk" value="CHECKOUT">
+						<span id="cont"><a style="text-decoration:none;font-weight:bold;"	href="#">CONTINUE SHOPPING</a></span>
+					</div>	
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+	    </div>
+		</div>
+		<footer>
+		  <div class="row">
+			<div class="row_left">
+			  <div class="column" >
+				<ul><h2>LOREM</h2>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+				</ul>	
+			  </div>
+			  
+			  <div class="column" >
+				<ul><h2>LOREM</h2>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+				</ul>	
+			  </div>
+			  
+			  <div class="column"  id="col3">
+				<ul><h2>LOREM</h2>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+				</ul>	
+			  </div>
+			  
+			  <div class="column" id="col4" >
+				<ul><h2>LOREM</h2>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+					<li>Dummy</li>
+				</ul>	
+			  </div>
+			</div>
+			<div class="row_right">
+			  <div class="column" >
+				 <h2>CALL US</h2>
+				 <div> 
+					<span>Monday - Friday </br> 8am - 10pm CST</span>
+					<span>Saturday & Sunday </br> 10am - 4pm CST</span>
+				 </div>	
+				 <div style="font-size:20px;"><img src="icon/phone.png">1800-123-1234</div>
+				 <hr>
+				 <div>support.us@test.com</div>
+			  </div>
+			</div> 
+		  </div>
+          <hr>
+		  <div class="bottom">
+			  <ul class="bot_menu"><li>Dummy</li><li>Dummy</li><li>Dummy</li><li>Dummy</li></ul>
+			  <p>Lorem ipsum is simply dummy test data and typesetting industry.</p>
+			  
+		  </div>
+		  <div style="clear:both;"></div>
+		</footer>
+</body>
+</html>
