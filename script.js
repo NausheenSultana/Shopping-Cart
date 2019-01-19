@@ -1,57 +1,52 @@
- var app = angular.module('myApp', []);
+var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http) {
+	$scope.totalCartCost = 0;
+	$scope.discount = 0;
+	console.log("home Controller");
+		  
+
   $http.get("data.json")
   .then(function(response) {
       $scope.items = response.data.products;
-	  $scope.count = 1;
+	  $scope.items.map(function(item) {
+		  item['qty'] = 1;
+	  })
+	  updateTotalCartCost();
+	  //$scope.count = 1;
 	 // $scope.pincode = response.data.pincode;
-	  				
   });
-  
+  $scope.deleteItem = function(id){
+		$scope.items.splice(id, 1);
+		updateTotalCartCost();
+	  }
+	  
+	updateTotalCartCost = function(){
+		$scope.totalCartCost = 0;
+		$scope.items.forEach(function(item){
+		  $scope.totalCartCost += item.qty * item.price;
+	  })
+	  if($scope.totalCartCost > 5000) {
+		$scope.discount = 10 * $scope.totalCartCost / 100;
+	  }
+	  else {
+		$scope.discount = 0;
+	  }
+	  console.log("Total Cost: "+ $scope.totalCartCost);
+	}
+	
+	$scope.increaseQty = function(index) {
+		$scope.items[index].qty += 1;
+		updateTotalCartCost();
+	}
+	
+	$scope.decreaseQty = function(index) {
+		if($scope.items[index].qty > 0){
+			$scope.items[index].qty -= 1;
+			updateTotalCartCost();
+		}
+	}
 }); 
 
-
-
-$(document).ready(function(){
-  $(".dell").click(function(){
-	  alert("lll");
-    $(this).hide();
-  });
-});
-	
-
-var count = 1;
-
-function add(idq){
-	var qid = document.getElementById(idq).innerHTML;;
-	qid ++;
-	alert(qid);
-}
-/* $(document).ready(function() {
-	var count = 1;
-			
-			document.getElementsByClassName("qty").innerHTML = count;
-			
-			
-			
-			$(".dell").click(function(){
-			alert("ji");
-			$(this).hide();
-			});
-
-
-            $("#deleteee").click(function(event){
-               $.getJSON('result.json', function(jd) {
-                  $('#stage').html('<p> Name: ' + jd.name + '</p>');
-                  $('#stage').append('<p>Age : ' + jd.age+ '</p>');
-                  $('#stage').append('<p> Sex: ' + jd.sex+ '</p>');
-               });
-            });
-				
-         });
-		 
-		 
- */
 
 
 
@@ -99,6 +94,9 @@ function validateForm() {
 					  {
 						  document.getElementById("stdS").innerHTML = price;
 						  document.getElementById("fd").style.display = "none";
+						  var total = document.getElementById("sumAmt").innerHTML;
+						  total = total - price;
+						  document.getElementById("sumAmt").innerHTML = total;
 					  }
 				  }	
 				}
@@ -111,72 +109,9 @@ function validateForm() {
 
 			
 			alert(pin);
-			
-			
-				
-		/* 		var col = [];
-			for (var i = 0; i < datas.length; i++) {
-            for (var key in datas[i]) {
-                if (col.indexOf(key) === -1) {
-                    col.push(key);
-                }
-            }
-        }
-		
-		var prod = [['Image','Name', 'Price','Tagline','Desc','Plan']];
-		
-		$.each(datas, function (index, value) {
-
-                    prod.push([value.imageUrl, value.name, value.price,  value.tagline, value.desc, value.plan]);
-		});
-		alert(prod);
-
-        // CREATE DYNAMIC TABLE.
-        var table = document.createElement("table");
-
-        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
-
-        var tr = table.insertRow(-1);                   // TABLE ROW.
-
-		var thArr = ["Products", "Price", "Quantity", "Subtotal"];
-		
-		
-		    for (var i = 0; i < thArr.length; i++) {
-            var th = document.createElement("th");      // TABLE HEADER.
-            th.innerHTML = thArr[i];
-            tr.appendChild(th);
-			}
 
 
-        // ADD JSON DATA TO THE TABLE         for (var i = 0; i < col.length; i++) {
-          
-        for (var i = 1; i < 3; i++) {
-
-            tr = table.insertRow(-1);
-			var td = document.createElement("td");      // TABLE HEADER.
-            var img = document.createElement("img");
-			img.setAttribute("src", prod[i][0]);
-			td.appendChild(img);
-			tr.appendChild(td);
-			
-			
-            tr.appendChild(th);
-
-            for (var j = 1; j < 6; j++) {
-                var tabCell = tr.insertCell(-1);
-				if(j==1){
-					var desc = document.createElement("span");
-					desc.innerHTML = prod[i][4];
-					tabCell.appendChild(desc);
-				}
-                tabCell.innerHTML = prod[i][j];
-            }
-        }
-
-        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
-        var divContainer = document.getElementById("showData");
-        divContainer.innerHTML = "";
-        divContainer.appendChild(table); */
+         
     },
 
               

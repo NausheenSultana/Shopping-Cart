@@ -33,12 +33,12 @@
 			  <tr>
 				<th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th><th></th>
 			  </tr>	
-			  <tr ng-repeat="x in items" id="$index">
-				<td><p><img align="middle" class="pic" src="{{ x.imageUrl }}">{{ x.name }}</p></td>
-				<td>{{ x.price | currency }}</td>
-				<td><img src="icon/plus.png" onclick="add($index)" ><span class="qty" id="q$index"></span><img src="icon/minus.png"  onclick="sub($index)"></td>
-				<td>{{ x.price * count | currency}}</td>
-				<td class="dell"><img  src="icon/DELETE.png"></td>
+			  <tr ng-repeat="x in items" id="$index" class="row">
+				<td ng-init=""><p><img align="middle" class="pic" src="{{ x.imageUrl }}">{{ x.name }}<br>{{x.desc}}<br><span ng-if="x.planLink"><a id="viewP" href="{{x.planLink}}">View Plans</a></span></p></td>
+				<td class="pri">{{ x.price | currency }}</td>
+				<td><span class="plus" ng-click="increaseQty($index)"><img src="icon/plus.png"></span><input style="width:50px;" class="qty" value="{{x.qty}}" disabled><span class="minus" ng-click="decreaseQty($index)"><img src="icon/minus.png"></span></td>
+				<td class="sum">{{x.price * x.qty | currency}}</td>
+				<td class="dell" ng-click="deleteItem($index)"><img  src="icon/DELETE.png"></td>
 			  </tr>
 			</table>
 			</div>
@@ -67,13 +67,13 @@
 				
 				</div>
 				<div class="summary">
-					<h2>Order Summary   (xx items)</h2>
+					<h2>Order Summary   ({{items.length}} items)</h2>
 					<table>
-						<tr><td>Subtotal</td><td id="subt"></td></tr>
-						<tr><td>Total Discount</td><td id="totD">0</td></tr>
+						<tr><td>Subtotal</td><td id="subt">{{totalCartCost}}</td></tr>
+						<tr><td>Total Discount</td><td id="totD">{{discount}}</td></tr>
 						<tr><td>Standard Shipping</td><td id="stdS"></td></tr>
 						<tr></tr>
-						<tr><td>Order Total</td><td><span id="sumAmt"></span></td></tr>
+						<tr><td>Order Total</td><td><span id="sumAmt">{{totalCartCost - discount }}</span></td></tr>
 					</table>
 					
 					<div class="row1">
