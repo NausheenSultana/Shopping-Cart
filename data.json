@@ -9,7 +9,7 @@
     },
     {
       "id": 2,
-      "tagline": "200 Cash back",
+      "tagline": "200 Cashback",
       "name": "Test 6X",
       "price": 14000,
       "imageUrl": "images/phone.png",
@@ -18,6 +18,7 @@
       "gift": {
         "name": "Glory Selfie Stick",
         "desc": "Silver Moon",
+		"imageUrl": "images/stick.png",
         "price": 175
       }
     },
@@ -31,12 +32,13 @@
       "gift": {
         "name": "Glory Selfie Stick",
         "desc": "Silver Moon",
+		"imageUrl": "images/stick.png",
         "price": 175
       }
     },
     {
       "id": 4,
-      "tagline": "100 Cash back",
+      "tagline": "100 Cashback",
       "name": "Earphones",
       "price": 11690,
       "imageUrl": "images/pho.jpg",

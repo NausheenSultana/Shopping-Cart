@@ -5,19 +5,10 @@
 	margin:0px;
 	background-color:white;
 }
-@media only screen and (max-width:620px) {
-  /* For mobile phones: */
-  .menu, .main, .right {
-    width:100%;
-  }
- nav a:first-child{
-	 display:none;
- }
- 
-#showData th, #showData .pri, #showData .dell,  #showData .sum{
-	display:none;
+#main{
+	border-radius: 12px;
 }
-}
+
 .top{
 background-color:#848ac6;
 color:#d8d9ec;
@@ -115,17 +106,12 @@ ul li{
   clear: both;
 }
 
-/* On screens that are 992px wide or less, go from four columns to two columns */
-@media screen and (max-width: 992px) {
-.row_left  .column {
-    width: 50%;
-  }
-  #col3, #col4{
-	  display:none;
-  }
-}
 
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+
+#cont{
+	margin-left:20px;
+}
+/* On screens that are 600px wide or less (mobile)**/
 @media screen and (max-width: 600px) {
   .column {
     display:none;
@@ -147,22 +133,61 @@ ul li{
 #cont{
 	text-align:center;
 }
+
+#showData tr td:first-child{
+	  width:33%!important;
+  }
+ nav a:first-child{
+	 display:none;
+ }
+.qty{
+	width:30px!important;
+}
+table#showData{
+	display:inherit;
+}
+ 
+#showData th, #showData .dell,  #showData .sum{
+	display:none!important;
+}
+.delivery ul li{
+	margin-right:10px!important;
+}
+#showData td{
+	font-size:11px;
 }
 
-@media screen and (max-width: 800px) {
+}
+
+@media screen and (max-width: 800px) {  /**  tab and mobile  **/
 .delivery ul li
 {
-	margin-right:6px!important;
+	margin-right:6px;
 	font-size:12px;
 }
 .delivery ul{
 	height:80px;
 	margin-left: -20px;
 }
+#chk{
+	display:block!important;
 }
+.row_left  .column {
+    width: 50%;
+  }
+  #col3, #col4{				/* On screens that are 992px wide or less, go from four columns to two columns */
+	  display:none;
+  }
+  
+   .wrapper{
+	 background-color:white;
+ }
+}
+
+
  /**cart**/
- td, th{
-	 padding: .625em;
+ #showData td,#showData th{
+	 padding: .325em;
 	 text-align: center;
  }
  td{
@@ -170,7 +195,6 @@ ul li{
  }
  th{
 	 font-weight:bold;
-    width: 25%;
     text-align: center;
  }
 .qty{
@@ -191,9 +215,9 @@ table {
 tr{
 	padding: .35em;
 }
-tr td:nth-child(2)
+#showData tr td:nth-child(4)
 {
-	font-weight:bold!important;
+	color:black;
 }
 /**pincode**/
 .delivery ul li{
@@ -223,7 +247,7 @@ tr td:nth-child(2)
 	font-weight:bold;
 	padding:15px;
 	border:none;
-	margin-right:16px;
+	margin: 13px auto;
 }
 #chg{
 	color:#131f97;
@@ -237,9 +261,10 @@ tr td:nth-child(2)
 	font-size:20px;
 	border:none;
 	background-color:transparent;
+	width:56%;
 }
 
-@media screen and (min-width: 667px) {
+@media screen and (min-width: 667px) { /***other  than mobile screen, delivery and summary sections***/
 	.delivery{
 	float:left;
 	width:50%;
@@ -251,26 +276,36 @@ tr td:nth-child(2)
 
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 800px) { /*** tab screen and beyond***/
+
 .summary,.delivery{
 	padding: 50px 100px;
 }
+#showData tr td:first-child{
+	    padding: 3px 80px
+}
 }
 
 
-.totD, .subT, .stdS{
-	text-align : right;
+#totD, #subt, #stdS, #sumAmt{
+	text-align : right!important;
+}
+#sumAmt{
+	color: black;
+    font-size: 22px;
+    font-weight: bold;
 }
 .pic{
 	width:100px!important;
 	height:100px!important;
-	!margin:50px;
+	margin-right: 5px;
+    float: left;
 }
 #showData td{
 	vertical-align:middle;
 }
-#showData tr:first-child th{
-	border-bottom:1px solid grey;
+#itemRow td,#showData th{
+	border-bottom:1px solid #f0f0f0;
 }
 #showData tr td:first-child{
 	!padding:20 60px!important;
@@ -280,5 +315,39 @@ tr td:nth-child(2)
 	color:#131f97;
 	text-decoration:none;
 }
+/***cashback tagline***/
+#cb{
+	background-color:#312a6d;
+	color:white;
+	font-weight:bold;
+}
+/***gift tag***/
+#giftTag{
+	background-color:black;
+	padding:2px;
+	color:white;
+	font-weight:bold;
+}
+#showData tr td:first-child,#showData tr th:first-child{
+	width:43%;
+}
 
-
+#gift td{
+	background-color:#fafafa;
+}
+#gift td:first-child{
+	!border-left:20px solid white;
+}
+.plus img,.minus img{
+	margin-bottom:-5px;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.prodName{
+	font-weight:bold;
+}
+.delivery,.summary{
+    padding: 4px;
+}
